@@ -2,12 +2,14 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-        <img src="../../assets/imgs/logo-srg.png">
+        <br>
+          <p id="icon" style="text-shadow: rgb(15, 35, 50) 0px 0px 0px, rgb(16, 37, 52) 1px 1px 0px, rgb(17, 39, 55) 2px 2px 0px, rgb(18, 41, 58) 3px 3px 0px, rgb(19, 43, 60) 4px 4px 0px, rgb(20, 44, 63) 5px 5px 0px, rgb(20, 46, 66) 6px 6px 0px, rgb(21, 48, 68) 7px 7px 0px; font-size: 20px; color: rgb(255, 255, 255); height: 163px; width: 163px; line-height: 163px; border-radius: 32%; text-align: center; background-color: rgb(22, 50, 71); position: relative; left: 25%;"> CUCEI-SRG Móvil </p> 
+        <!-- <img src="../../assets/imgs/logo-srg.png"> -->
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
-        <h2 text-center ion-text color="light" style="border-bottom: 3px solid black;">CUCEI-SRG <b ion-text color="dark">Móvil</b></h2>
+        <h2 text-center ion-text color="light" style="border-bottom: 3px solid black;">Sistema de reportes general</h2>
       </ion-col>
     </ion-row>
     <ion-row>
@@ -21,13 +23,23 @@
           <button ion-button color="light" (click)="authSys()" block outline style="border-radius: 7px 7px 7px 7px;">INGRESO AL SISTEMA SRG</button>
           <small text-center ion-text color="light">Opción única para la Coordinacion de Servicios Generales.</small>
         </div>
-        <div class="LOGIN-EMERG" style="padding-top: 3%;">
-          <button (click)="emergency()" ion-button color="danger" block outline style="border-radius: 7px 7px 7px 7px;">EMERGENCIA</button>
-          <small ion-text color="light">Solo usar si se presenta una emergencia.</small>
-        </div>
       </ion-col>
     </ion-row>
   </ion-grid>
-  <small style="position: absolute; top: 97%;">ver.0.1.2 CUCEI-SRG 2018 | Sistema de Reportes General.</small>
-  <small (click)="AdPrivacy()">Aviso de Privacidad.</small>
+  <small style="position: absolute; top: 97%;" style="color:white;">ver.0.1.2 CUCEI-SRG 2018 | Sistema de Reportes General.</small>
+  <div>
+      <small (click)="AdPrivacy()" style="color: white;">Aviso de Privacidad.</small><br>
+  </div>
+  <ion-grid>
+      <ion-row>
+        <ion-col col-5>
+          <i (click)="AlumnFirst()" id="icon" class="fa fa-user" style="text-shadow: rgb(21, 22, 109) 0px 0px 0px, rgb(23, 37, 119) 1px 1px 0px, rgb(25, 40, 128) 2px 2px 0px, rgb(26, 37, 137) 3px 3px 0px, rgb(30, 28, 147) 4px 4px 0px; font-size: 40px; color: rgb(255, 255, 255); height: 65px; width: 65px; line-height: 65px; border-radius: 50%; text-align: center; background-color: rgb(43, 30, 156); position: relative; float: left;"></i><br>
+          <br><small ion-text color="light" style="position: relative; float: left;">Alumnos Primer Ingreso</small>
+        </ion-col>
+        <ion-col col-3 offset-4>
+          <i (click)="emergency()" id="icon" class="fa fa-medkit" style="text-shadow: rgb(109, 24, 21) 0px 0px 0px, rgb(119, 26, 23) 1px 1px 0px, rgb(128, 28, 25) 2px 2px 0px, rgb(137, 30, 26) 3px 3px 0px, rgb(147, 32, 28) 4px 4px 0px; font-size: 40px; color: rgb(255, 255, 255); height: 65px; width: 65px; line-height: 65px; border-radius: 50%; text-align: center; background-color: rgb(156, 34, 30); position: relative; float: right;"></i><br>
+          <br><small ion-text color="light" style="position: relative; float: right;">Emergencia</small>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
 </ion-content>

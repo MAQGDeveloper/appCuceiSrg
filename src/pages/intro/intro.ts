@@ -12,29 +12,29 @@ export class IntroPage {
     {
       title: "¡Bienvenido a CUCEI-SRG!",
       description: "Una Nueva Forma de realizar Reportes de Mantenimiento y Seguridad en CUCEI",
-      image: "../../assets/imgs/ica-slidebox-img-1.png",
+      image: "../../assets/imgs/ica-slidebox-img-1.PNG",
     },
     {
       title: "¿Qué es CUCEI-SRG?",
-      description: "<b>CUCEI-SRG</b> Es una app donde la comunidad CUCEI podrá realizar reportes de mantenimiento y seguridad desde tu SmartPhone de una manera ágil y sencilla.",
-      image: "../../assets/imgs/ica-slidebox-img-2.png",
+      description: "CUCEI-SRG Es una app donde la comunidad CUCEI podrá realizar reportes de mantenimiento y seguridad desde tu SmartPhone de una manera ágil y sencilla.",
+      image: "../../assets/imgs/ica-slidebox-img-2.PNG",
     },
     {
       title: "¿Qué necesito para utilizar la App?",
       description: "Para Ingresar solo necesitas tu correo institucional UDG <small>*Para Alumnos, Académicos y Administrativos.</small>",
-      image: "../../assets/imgs/ica-slidebox-img-3.png",
+      image: "../../assets/imgs/ica-slidebox-img-3.PNG",
     },
     {
       title: "¿Una Emergencia?",
       description: "Tan Solo toca la opción EMERGENCIA y podrás comunicarte directamente al área de Seguridad donde te atenderán de manera inmediata.",
-      image: "../../assets/imgs/ica-slidebox-img-3.png",
+      image: "../../assets/imgs/ica-slidebox-img-4.PNG",
     }
   ];
 
   constructor(public navCtrl: NavController,
               private statusBar: StatusBar,) {
     this.statusBar.overlaysWebView(true);
-    this.statusBar.backgroundColorByHexString('#FFFFFF');
+    this.statusBar.backgroundColorByHexString('#000000');
   }
   saltar_tutorial(){
     this.navCtrl.setRoot(LoginPage);

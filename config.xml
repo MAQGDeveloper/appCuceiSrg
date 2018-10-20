@@ -85,8 +85,8 @@
     <plugin name="mx.ferreyra.callnumber" spec="~0.0.2" />
     <plugin name="cordova-plugin-statusbar" spec="^2.4.2" />
     <plugin name="cordova-plugin-x-toast" spec="^2.7.0" />
-    <plugin name="cordova-plugin-googleplus" spec="^5.3.0">
-        <variable name="REVERSE_CLIENT_ID" value="com.googleusercontent.apps.56958534713-dr5enm501l2p1pkv6qrhmjjs8m3mb6ai" />
+    <plugin name="cordova-plugin-googleplus" spec="^5.3.1">
+        <variable name="REVERSED_CLIENT_ID" value="com.googleusercontent.apps.56958534713-m0bpa8s00ricompodhlg8r420j022ecj" />
     </plugin>
     <engine name="android" spec="6.4.0" />
 </widget>

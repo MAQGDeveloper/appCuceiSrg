@@ -21,7 +21,7 @@ export class LoginPage {
               private statusBar: StatusBar,
               private toastCtrl: ToastController) {
                 this.statusBar.overlaysWebView(true);
-                this.statusBar.backgroundColorByHexString('#0E8BF8');
+                this.statusBar.backgroundColorByHexString('#163247');
   }
  
   signInGoogleMobile(){
@@ -104,6 +104,19 @@ export class LoginPage {
     toast.present();
   }
   HelpEmail(){
+    let toast = this.toastCtrl.create({
+      message: '¡Opción Disponible Próximamente!',
+      duration: 3000,
+      position: 'bottom'
+    });
+
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+
+    toast.present();
+  }
+  AlumnFirst(){
     let toast = this.toastCtrl.create({
       message: '¡Opción Disponible Próximamente!',
       duration: 3000,

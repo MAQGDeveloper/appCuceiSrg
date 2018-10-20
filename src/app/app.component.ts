@@ -22,9 +22,9 @@ export class MyApp {
       if (platform.is('cordova')) {
         this.rootPage = IntroPage;
       } else {
-        this.rootPage = FormreportemovilPage;
+        //this.rootPage = FormreportemovilPage;
         //this.rootPage = IntroPage;
-        //this.rootPage = MenuprincipalPage;
+        this.rootPage = MenuprincipalPage;
         //this.rootPage = LoginwebPage;
       }
     });
