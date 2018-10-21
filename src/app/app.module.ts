@@ -12,6 +12,9 @@ import { LoginPage } from "../pages/login/login";
 import { LoginwebPage } from "../pages/loginweb/loginweb";
 import { MenuprincipalPage } from "../pages/menuprincipal/menuprincipal";
 import { FormreportemovilPage } from "../pages/formreportemovil/formreportemovil";
+import { HelpemailPage } from "../pages/helpemail/helpemail";
+import { AboutPage } from "../pages/about/about";
+//providers
 import { UsuarioProvider } from '../providers/usuario/usuario';
 
 //Firebase
@@ -40,7 +43,9 @@ firebase.initializeApp(firebaseConfig);
     LoginPage,
     LoginwebPage,
     MenuprincipalPage,
-    FormreportemovilPage
+    FormreportemovilPage,
+    AboutPage,
+    HelpemailPage
   ],
   imports: [
     BrowserModule,
@@ -56,7 +61,9 @@ firebase.initializeApp(firebaseConfig);
     LoginPage,
     LoginwebPage,
     MenuprincipalPage,
-    FormreportemovilPage
+    FormreportemovilPage,
+    AboutPage,
+    HelpemailPage
   ],
   providers: [
     StatusBar,

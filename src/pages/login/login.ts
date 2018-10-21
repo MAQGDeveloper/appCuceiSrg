@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, ToastController } from 'ionic-angular';
 import { MenuprincipalPage } from "../menuprincipal/menuprincipal";
+import { HelpemailPage } from "../helpemail/helpemail";
 import firebase from 'firebase/app';
 import { GooglePlus } from '@ionic-native/google-plus';
 import swal from 'sweetalert';
 import { CallNumber } from '@ionic-native/call-number';
 import { StatusBar } from '@ionic-native/status-bar';
-import { ToastController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -19,7 +19,8 @@ export class LoginPage {
               public googlePlus: GooglePlus,
               private callNumber: CallNumber,
               private statusBar: StatusBar,
-              private toastCtrl: ToastController) {
+              private toastCtrl: ToastController,
+              private modalCtrl: ModalController) {
                 this.statusBar.overlaysWebView(true);
                 this.statusBar.backgroundColorByHexString('#163247');
   }
@@ -29,12 +30,14 @@ export class LoginPage {
       'webClientId':'56958534713-dr5enm501l2p1pkv6qrhmjjs8m3mb6ai.apps.googleusercontent.com',
       'offline':true
     }).then(res=> {
-      firebase.auth().signInWithCredential(firebase.auth.GoogleAuthProvider.credential(res.idToken))
+        firebase.auth().signInWithCredential(firebase.auth.GoogleAuthProvider.credential(res.idToken))
         .then(user=> {
           let email = user.email;
           let name = user.displayName;
           let picture = user.photoURL;
-          this.valida(email,name,picture);
+          let uuid = user.uid;
+          let token = user.getIdToken
+          this.valida(email,name,picture,uuid);
         }).catch(error=>{
           let toast = this.toastCtrl.create({
             message: 'Ha Ocurrido Un Problema Al Iniciar Sesión.',
@@ -46,10 +49,10 @@ export class LoginPage {
           });
           toast.present();
         })
-    });
+    }); //res
 }
 
- valida(email:string,name:string,picture:string){
+ valida(email:string,name:string,picture:string,uuid:string){
     //Si en el array email contiene el dominio
     //Dominio alumnos.udg.mx
 
@@ -68,7 +71,8 @@ export class LoginPage {
       this.navCtrl.setRoot(MenuprincipalPage,{
         'nombre':name,
         'correo':email,
-        'imagen':picture
+        'imagen':picture,
+        'uuid':uuid
       });
     }
     //Dominio academicos.udg.mx
@@ -104,17 +108,8 @@ export class LoginPage {
     toast.present();
   }
   HelpEmail(){
-    let toast = this.toastCtrl.create({
-      message: '¡Opción Disponible Próximamente!',
-      duration: 3000,
-      position: 'bottom'
-    });
-
-    toast.onDidDismiss(() => {
-      console.log('Dismissed toast');
-    });
-
-    toast.present();
+    let modal = this.modalCtrl.create(HelpemailPage);
+    modal.present();
   }
   AlumnFirst(){
     let toast = this.toastCtrl.create({
@@ -134,6 +129,7 @@ export class LoginPage {
   .then(res => console.log('Launched dialer!', res))
   .catch(err => console.log('Error launching dialer', err));
   }
+  
   AdPrivacy(){
     swal({
     title: "Aviso de Privacidad",
