@@ -27,8 +27,8 @@ export class MyApp {
         //this.rootPage = FormreportemovilPage;
         //this.rootPage = IntroPage;
         //this.rootPage = MenuprincipalPage;
-        //this.rootPage = AboutPage;
-        this.rootPage = HelpemailPage;
+        this.rootPage = AboutPage;
+        //this.rootPage = HelpemailPage;
         //this.rootPage = LoginwebPage;
       }
     });
