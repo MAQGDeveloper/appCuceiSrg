@@ -8,6 +8,7 @@ import { MenuprincipalPage } from "../pages/menuprincipal/menuprincipal";
 import { FormreportemovilPage } from "../pages/formreportemovil/formreportemovil";
 import { HelpemailPage } from "../pages/helpemail/helpemail";
 import { AboutPage } from "../pages/about/about";
+import { } from '';
 @Component({
   templateUrl: 'app.html'
 })
@@ -25,9 +26,9 @@ export class MyApp {
         this.rootPage = IntroPage;
       } else {
         //this.rootPage = FormreportemovilPage;
-        //this.rootPage = IntroPage;
+        this.rootPage = IntroPage;
         //this.rootPage = MenuprincipalPage;
-        this.rootPage = AboutPage;
+        //this.rootPage = AboutPage;
         //this.rootPage = HelpemailPage;
         //this.rootPage = LoginwebPage;
       }

@@ -1,35 +1,41 @@
 <ion-content padding>
   <ion-grid>
+      <ion-row>
+          <ion-col>
+            <h4 text-center ion-text color="light">Sistema de Reportes General</h4>
+          </ion-col>
+        </ion-row>
     <ion-row>
       <ion-col>
-        <br>
-          <p id="icon" style="text-shadow: rgb(15, 35, 50) 0px 0px 0px, rgb(16, 37, 52) 1px 1px 0px, rgb(17, 39, 55) 2px 2px 0px, rgb(18, 41, 58) 3px 3px 0px, rgb(19, 43, 60) 4px 4px 0px, rgb(20, 44, 63) 5px 5px 0px, rgb(20, 46, 66) 6px 6px 0px, rgb(21, 48, 68) 7px 7px 0px; font-size: 20px; color: rgb(255, 255, 255); height: 163px; width: 163px; line-height: 163px; border-radius: 32%; text-align: center; background-color: rgb(22, 50, 71); position: relative; left: 25%;"> CUCEI-SRG Móvil </p> 
-        <!-- <img src="../../assets/imgs/logo-srg.png"> -->
+          <p id="icon" style="text-shadow: rgb(15, 35, 50) 0px 0px 0px, rgb(16, 37, 52) 1px 1px 0px, rgb(17, 39, 55) 2px 2px 0px, rgb(18, 41, 58) 3px 3px 0px, rgb(19, 43, 60) 4px 4px 0px, rgb(20, 44, 63) 5px 5px 0px, rgb(20, 46, 66) 6px 6px 0px, rgb(21, 48, 68) 7px 7px 0px; font-size: 20px; color: rgb(255, 255, 255); height: 162px; width: 162px; line-height: 153px; border-radius: 32%; text-align: center; background-color: rgb(22, 50, 71); position: relative; left: 25%;"> CUCEI-SRG Móvil </p> 
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
-        <h2 text-center ion-text color="light" style="border-bottom: 3px solid black;">Sistema de reportes general</h2>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <div class="LOGIN-ALUMNO" style="border-bottom: 1px solid white; padding-bottom: 2%;">
-          <h6 ion-text color="light" font-weight="roboto-bold">¿Eres Alumno o Académico?</h6>
-          <button (click)="signInGoogleMobile()" ion-button color="secondary" block outline style="border-radius: 7px 7px 7px 7px;">INGRESA CON TU CORREO INSTITUCIONAL</button>
-          <small ion-text color="light" (click)="HelpEmail()">¿Cúal es mi correo institucional?</small>
-        </div>
-        <div class="LOGIN-ADM" style="padding-top: 2%;">
-          <button ion-button color="light" (click)="authSys()" block outline style="border-radius: 7px 7px 7px 7px;">INGRESO AL SISTEMA SRG</button>
-          <small text-center ion-text color="light">Opción única para la Coordinacion de Servicios Generales.</small>
+        <div class="LOGIN-ALUMNO" >
+            <ion-item style="background: linear-gradient(to bottom, #0f2430 0%, #0d1f2b 80%, #0d1f2b 80%)">
+              <ion-label floating>Ingresa tu correo institucional</ion-label>
+              <ion-input type="email" [(ngModel)]="user.email" style="background: linear-gradient(to bottom, #0f2430 0%, #0d1f2b 80%, #0d1f2b 80%); color: white;"></ion-input>
+            </ion-item>
+            <ion-item style="background: linear-gradient(to bottom, #0f2430 0%, #0d1f2b 80%, #0d1f2b 80%)">
+              <ion-label floating>Escribe tu Contraseña</ion-label>
+              <ion-input type="password" [(ngModel)]="user.password" style="background: linear-gradient(to bottom, #0f2430 0%, #0d1f2b 80%, #0d1f2b 80%); color: white;"></ion-input>
+            </ion-item>
+            <ion-grid>
+              <ion-row>
+                <ion-col col-5>
+                  <button (click)="SigninUser(user)" ion-button color="secondary" block outline style="border-radius: 7px 7px 7px 7px;" id="btnLogin">Ingresar</button>                  
+                </ion-col>
+                <ion-col col-5 offset-2>
+                  <button (click)="SignupUser()" ion-button color="primary" block outline style="border-radius: 7px 7px 7px 7px;">Registrate</button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+            <small ion-text color="light" (click)="HelpEmail()">¿Cúal es mi correo institucional?</small>
         </div>
       </ion-col>
     </ion-row>
   </ion-grid>
-  <small style="position: absolute; top: 97%;" style="color:white;">ver.0.1.2 CUCEI-SRG 2018 | Sistema de Reportes General.</small>
-  <div>
-      <small (click)="AdPrivacy()" style="color: white;">Aviso de Privacidad.</small><br>
-  </div>
   <ion-grid>
       <ion-row>
         <ion-col col-5>

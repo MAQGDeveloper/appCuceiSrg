@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, ToastController, LoadingController } from 'ionic-angular';
 import { MenuprincipalPage } from "../menuprincipal/menuprincipal";
 import { HelpemailPage } from "../helpemail/helpemail";
-import firebase from 'firebase/app';
-import { GooglePlus } from '@ionic-native/google-plus';
 import swal from 'sweetalert';
 import { CallNumber } from '@ionic-native/call-number';
 import { StatusBar } from '@ionic-native/status-bar';
+import { User } from '../../models/user';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @IonicPage()
 @Component({
@@ -14,102 +14,69 @@ import { StatusBar } from '@ionic-native/status-bar';
   templateUrl: 'login.html',
 })
 export class LoginPage {
+
+  user = {} as User;
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              public googlePlus: GooglePlus,
+              private afAuth:AngularFireAuth,
               private callNumber: CallNumber,
               private statusBar: StatusBar,
               private toastCtrl: ToastController,
+              public loadingCtrl: LoadingController,
               private modalCtrl: ModalController) {
-                this.statusBar.overlaysWebView(true);
+                this.statusBar.overlaysWebView(false);
                 this.statusBar.backgroundColorByHexString('#163247');
   }
- 
-  signInGoogleMobile(){
-    this.googlePlus.login({
-      'webClientId':'56958534713-dr5enm501l2p1pkv6qrhmjjs8m3mb6ai.apps.googleusercontent.com',
-      'offline':true
-    }).then(res=> {
-        firebase.auth().signInWithCredential(firebase.auth.GoogleAuthProvider.credential(res.idToken))
-        .then(user=> {
-          let email = user.email;
-          let name = user.displayName;
-          let picture = user.photoURL;
-          let uuid = user.uid;
-          let token = user.getIdToken
-          this.valida(email,name,picture,uuid);
-        }).catch(error=>{
-          let toast = this.toastCtrl.create({
-            message: 'Ha Ocurrido Un Problema Al Iniciar Sesión.',
-            duration: 3000,
-            position: 'bottom'
-          });
-          toast.onDidDismiss(() => {
-            console.log('Dismissed toast');
-          });
-          toast.present();
-        })
-    }); //res
-}
-
- valida(email:string,name:string,picture:string,uuid:string){
-    //Si en el array email contiene el dominio
-    //Dominio alumnos.udg.mx
-
-    if(email.indexOf('@alumnos.udg.mx')!=-1)
-    {
-      let toast = this.toastCtrl.create({
-        message: 'Bienvenido '+ name +' a CUCEI-SRG',
-        position: 'bottom',
-        showCloseButton:true,
-        closeButtonText:'Ok'
-      });
-      toast.onDidDismiss(() => {
-        console.log('Dismissed toast');
-      });
-      toast.present();
-      this.navCtrl.setRoot(MenuprincipalPage,{
-        'nombre':name,
-        'correo':email,
-        'imagen':picture,
-        'uuid':uuid
-      });
-    }
-    //Dominio academicos.udg.mx
-    else if(email.indexOf('@academicos.udg.mx')!=-1)
-      {
-         this.navCtrl.setRoot(MenuprincipalPage);
-      }
-      else if(email.indexOf('@cucei.udg.mx')!=-1)
-        {
-          this.navCtrl.setRoot(MenuprincipalPage);
-        }
-      //si no es ninguno
-      else
-      {
-          swal({
-          title: "Oops!... Ha Ocurrido un Error.",
-          text: "Has intentado ingresar con el correo: "+ email+", el cual no pertenece a un correo Institucional UDG.",
-          icon: "error",
+  // ionViewPageLoad(){
+  //   this.afAuth.auth.onAuthStateChanged(function(user) {
+  //     if (user) {
+  //       this.navCtrl.setRoot(MenuprincipalPage,{
+  //         'correo': user.email,
+  //         'imagen': user.photoURL
+  //       }); //to the page where user navigates after login
+  //       // User is signed in.
+  //     } else {
+  //       this.navCtrl.setRoot(LoginPage); // to the login page as user is not logged in
+  //       // No user is signed in.
+  //     }
+  //   });
+  // }
+   async disableBtn(action:boolean){
+     let button = <HTMLInputElement> document.getElementById("btnLogin");
+     button.disabled = action;
+  }
+  async SigninUser(user:User){
+    try{
+      this.disableBtn(true);
+      await this.afAuth.auth.signInWithEmailAndPassword(user.email,user.password).then(user=>{
+        this.disableBtn(true);
+        this.navCtrl.setRoot(MenuprincipalPage,{
+          'correo':user.user.email,
+          'imagen':user.user.photoURL,
+      })
+    });
+    }catch(error){
+        let toast = this.toastCtrl.create({
+          message: 'Datos inválidos o campos vacios',
+          duration: 3000,
+          position: 'bottom'
         });
+        toast.onDidDismiss(() => {
+          console.log('Dismissed toast');
+        });
+        toast.present();
+        this.disableBtn(false);
       }
+    
+}
+  SignupUser(){
+    this.navCtrl.push('FormnewuserPage');
   }
-  authSys(){
-    let toast = this.toastCtrl.create({
-      message: '¡Opción Disponible Próximamente!',
-      duration: 3000,
-      position: 'bottom'
-    });
-
-    toast.onDidDismiss(() => {
-      console.log('Dismissed toast');
-    });
-
-    toast.present();
-  }
+  
   HelpEmail(){
-    let modal = this.modalCtrl.create(HelpemailPage);
-    modal.present();
+    // let modal = this.modalCtrl.create(HelpemailPage);
+    // modal.present();
+    this.navCtrl.push('HelpemailPage');
   }
   AlumnFirst(){
     let toast = this.toastCtrl.create({

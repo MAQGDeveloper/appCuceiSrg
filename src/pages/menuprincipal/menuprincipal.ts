@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,LoadingController,ModalController  } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,LoadingController,ModalController,ToastController  } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { LoginPage } from "../login/login";
 import { CallNumber } from '@ionic-native/call-number';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AboutPage } from '../about/about';
+import { User } from '../../models/user';
 @IonicPage()
 @Component({
   selector: 'page-menuprincipal',
@@ -24,6 +25,7 @@ export class MenuprincipalPage {
               private statusBar: StatusBar,
               private afAuth: AngularFireAuth,
               private callNumber: CallNumber,
+              private toastCtrl: ToastController,
               private modalCtrl: ModalController) {
     
     //Testing
@@ -34,14 +36,28 @@ export class MenuprincipalPage {
     // this.validate();
     this.statusBar.backgroundColorByHexString('#0D47A1');
     //Produccion
-    this.nombre = this.navParams.get("nombre");
+    // this.nombre = this.navParams.get("nombre");
     this.email = this.navParams.get("correo");
     this.imagen = this.navParams.get("imagen");
-    this.uuid = this.navParams.get("uuid");
+    // this.uuid = this.navParams.get("uuid");
     this.statusBar.overlaysWebView(false);
     this.validate();
   }
- 
+ ionViewWillLoad(){
+   this.afAuth.authState.subscribe(data =>{
+     if(data && data.email && data.uid)
+    this.toastCtrl.create({
+      message: `Bienvenido a CUCEI-SRG: ${data.email}`,
+      duration: 3000
+    }).present();
+    else{
+      this.toastCtrl.create({
+        message: `No se encontraron las credenciales`,
+        duration:3000
+      }).present();
+    }
+   })
+ }
    presentLoading(type:string) {
     const loader = this.loadingCtrl.create({
       content: "Has ingresado como "+type,
@@ -61,10 +77,6 @@ export class MenuprincipalPage {
   }
   logout(){
     this.afAuth.auth.signOut().then(result =>{
-      this.nombre = null;
-      this.email= null;
-      this.imagen = null;
-      this.uuid= null;
       const loader = this.loadingCtrl.create({
         content: "Cerrando Sesión...",
         duration: 3000

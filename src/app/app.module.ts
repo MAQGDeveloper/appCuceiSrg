@@ -12,10 +12,10 @@ import { LoginPage } from "../pages/login/login";
 import { LoginwebPage } from "../pages/loginweb/loginweb";
 import { MenuprincipalPage } from "../pages/menuprincipal/menuprincipal";
 import { FormreportemovilPage } from "../pages/formreportemovil/formreportemovil";
-import { HelpemailPage } from "../pages/helpemail/helpemail";
 import { AboutPage } from "../pages/about/about";
-//providers
-import { UsuarioProvider } from '../providers/usuario/usuario';
+//Models
+
+// import { UsuarioProvider } from '../providers/usuario/usuario';
 
 //Firebase
 import { AngularFireModule } from 'angularfire2';
@@ -44,8 +44,7 @@ firebase.initializeApp(firebaseConfig);
     LoginwebPage,
     MenuprincipalPage,
     FormreportemovilPage,
-    AboutPage,
-    HelpemailPage
+    AboutPage
   ],
   imports: [
     BrowserModule,
@@ -62,15 +61,13 @@ firebase.initializeApp(firebaseConfig);
     LoginwebPage,
     MenuprincipalPage,
     FormreportemovilPage,
-    AboutPage,
-    HelpemailPage
+    AboutPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     GooglePlus,
-    UsuarioProvider,
     CallNumber,
     StatusBar,
     Toast
