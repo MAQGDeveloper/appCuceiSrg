@@ -1,0 +1,62 @@
+{
+  "project_info": {
+    "project_number": "56958534713",
+    "firebase_url": "https://cucei-srg.firebaseio.com",
+    "project_id": "cucei-srg",
+    "storage_bucket": "cucei-srg.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:56958534713:android:72214d21b0fe4083",
+        "android_client_info": {
+          "package_name": "com.application.cuceisrg"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "56958534713-4geo61551pdd15mh6i5d1t1g826c6mih.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.application.cuceisrg",
+            "certificate_hash": "bb9d1ccbcc5f6301d22864c84156832f64087fa2"
+          }
+        },
+        {
+          "client_id": "56958534713-dr5enm501l2p1pkv6qrhmjjs8m3mb6ai.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNPOrlsooqJkTW8DKDSRJsq7vHVUloT7c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "56958534713-dr5enm501l2p1pkv6qrhmjjs8m3mb6ai.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "56958534713-m0bpa8s00ricompodhlg8r420j022ecj.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.application.cuceisrg"
+              }
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
