@@ -3,12 +3,10 @@ import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { IntroPage } from "../pages/intro/intro";
-import { LoginwebPage } from "../pages/loginweb/loginweb";
 import { MenuprincipalPage } from "../pages/menuprincipal/menuprincipal";
 import { FormreportemovilPage } from "../pages/formreportemovil/formreportemovil";
 import { HelpemailPage } from "../pages/helpemail/helpemail";
 import { AboutPage } from "../pages/about/about";
-import { } from '';
 @Component({
   templateUrl: 'app.html'
 })

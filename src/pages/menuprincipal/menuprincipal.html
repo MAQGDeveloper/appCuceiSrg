@@ -3,24 +3,21 @@
     <ion-toolbar>
       <ion-title text-center style="font: size 4;">CUCEI-SRG</ion-title>
     </ion-toolbar>
-    <img src="../../assets/imgs/ica-slidebox-img-1.PNG" style="border-radius: 50%; width: 100px; height: 100px; border: 4px solid rgb(7, 15, 59); position: relative; left: 30%;">
+    <img src="../../assets/imgs/logo-cuceisrg.PNG" style="border-radius: 50%; width: 100px; height: 100px; position: relative; left: 30%;">
     <p text-center style="color: white;">{{email}}</p><br>
   </ion-header>
-<ion-content padding>
-    <ion-list>
-      <button ion-item (click)="openPage(homePage)">
-        Mapa CUCEI
-      </button>
-      <button ion-item (click)="emergency()">
+  <ion-content padding>
+    <ion-list style="background: #6d6d6d !important;">
+      <button ion-item (click)="emergency()" style="background: #6d6d6d">
         Emergencia
       </button>
-      <button ion-item (click)="logout()">
+      <button ion-item (click)="logout()" style="background: #6d6d6d">
         Cerrar Sesión
       </button>
-      <button ion-item (click)="about()">
+      <button ion-item (click)="about()" style="background: #6d6d6d">
         Acerca de
       </button>
-      <small text-center style="color:gray;">ver.0.2.1 CUCEI-SRG 2018 | Sistema de Reportes General.</small>
+      <small text-center style="color:white;">ver.0.2.1 CUCEI-SRG 2018 | Sistema de Reportes General.</small>
     </ion-list>
   <!-- <ion-grid>
     <ion-row>
@@ -41,7 +38,6 @@
     </ion-row>
   </ion-grid>
   <ion-icon ios="ios-close" md="md-close">Salir</ion-icon> -->
-</ion-content>
+  </ion-content>
 </ion-menu>
-
 <ion-nav id="nav" #content [root]="rootPage"></ion-nav>

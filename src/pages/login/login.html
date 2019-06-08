@@ -1,51 +1,46 @@
 <ion-content padding>
   <ion-grid>
-      <ion-row>
-          <ion-col>
-            <h4 text-center ion-text color="light">Sistema de Reportes General</h4>
-          </ion-col>
-        </ion-row>
+    <div text-center>
+      <ion-img width="180" height="180" src="../assets/imgs/logo-cuceisrg.PNG"></ion-img>
+    </div>
     <ion-row>
       <ion-col>
-          <p id="icon" style="text-shadow: rgb(15, 35, 50) 0px 0px 0px, rgb(16, 37, 52) 1px 1px 0px, rgb(17, 39, 55) 2px 2px 0px, rgb(18, 41, 58) 3px 3px 0px, rgb(19, 43, 60) 4px 4px 0px, rgb(20, 44, 63) 5px 5px 0px, rgb(20, 46, 66) 6px 6px 0px, rgb(21, 48, 68) 7px 7px 0px; font-size: 20px; color: rgb(255, 255, 255); height: 162px; width: 162px; line-height: 153px; border-radius: 32%; text-align: center; background-color: rgb(22, 50, 71); position: relative; left: 25%;"> CUCEI-SRG Móvil </p> 
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <div class="LOGIN-ALUMNO" >
-            <ion-item style="background: linear-gradient(to bottom, #0f2430 0%, #0d1f2b 80%, #0d1f2b 80%)">
-              <ion-label floating>Ingresa tu correo institucional</ion-label>
-              <ion-input type="email" [(ngModel)]="user.email" style="background: linear-gradient(to bottom, #0f2430 0%, #0d1f2b 80%, #0d1f2b 80%); color: white;"></ion-input>
-            </ion-item>
-            <ion-item style="background: linear-gradient(to bottom, #0f2430 0%, #0d1f2b 80%, #0d1f2b 80%)">
-              <ion-label floating>Escribe tu Contraseña</ion-label>
-              <ion-input type="password" [(ngModel)]="user.password" style="background: linear-gradient(to bottom, #0f2430 0%, #0d1f2b 80%, #0d1f2b 80%); color: white;"></ion-input>
-            </ion-item>
-            <ion-grid>
-              <ion-row>
-                <ion-col col-5>
-                  <button (click)="SigninUser(user)" ion-button color="secondary" block outline style="border-radius: 7px 7px 7px 7px;" id="btnLogin">Ingresar</button>                  
-                </ion-col>
-                <ion-col col-5 offset-2>
-                  <button (click)="SignupUser()" ion-button color="primary" block outline style="border-radius: 7px 7px 7px 7px;">Registrate</button>
-                </ion-col>
-              </ion-row>
-            </ion-grid>
-            <small ion-text color="light" (click)="HelpEmail()">¿Cúal es mi correo institucional?</small>
-        </div>
+        <ion-item style="background: #212121">
+          <ion-label floating>Ingresa tu correo institucional</ion-label>
+          <ion-input type="email" [(ngModel)]="user.email" style="background: #212121; color: white;"></ion-input>
+        </ion-item>
+        <ion-item style="background: #212121">
+          <ion-label floating>Ingresa tu contraseña</ion-label>
+          <ion-input type="password" [(ngModel)]="user.password" style="background: #212121; color: white;"></ion-input>
+        </ion-item>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-5>
+              <button (click)="SigninUser(user)" ion-button color="secondary" block outline style="border-radius: 7px 7px 7px 7px;" id="btnLogin">Ingresar</button>                  
+            </ion-col>
+            <ion-col col-5 offset-2>
+              <button (click)="SignupUser()" ion-button color="primary" block outline style="border-radius: 7px 7px 7px 7px;">Registrate</button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      <small ion-text color="light" (click)="HelpEmail()">¿Cúal es mi correo institucional?</small>
       </ion-col>
     </ion-row>
   </ion-grid>
   <ion-grid>
-      <ion-row>
-        <ion-col col-5>
-          <i (click)="AlumnFirst()" id="icon" class="fa fa-user" style="text-shadow: rgb(21, 22, 109) 0px 0px 0px, rgb(23, 37, 119) 1px 1px 0px, rgb(25, 40, 128) 2px 2px 0px, rgb(26, 37, 137) 3px 3px 0px, rgb(30, 28, 147) 4px 4px 0px; font-size: 40px; color: rgb(255, 255, 255); height: 65px; width: 65px; line-height: 65px; border-radius: 50%; text-align: center; background-color: rgb(43, 30, 156); position: relative; float: left;"></i><br>
-          <br><small ion-text color="light" style="position: relative; float: left;">Alumnos Primer Ingreso</small>
-        </ion-col>
-        <ion-col col-3 offset-4>
-          <i (click)="emergency()" id="icon" class="fa fa-medkit" style="text-shadow: rgb(109, 24, 21) 0px 0px 0px, rgb(119, 26, 23) 1px 1px 0px, rgb(128, 28, 25) 2px 2px 0px, rgb(137, 30, 26) 3px 3px 0px, rgb(147, 32, 28) 4px 4px 0px; font-size: 40px; color: rgb(255, 255, 255); height: 65px; width: 65px; line-height: 65px; border-radius: 50%; text-align: center; background-color: rgb(156, 34, 30); position: relative; float: right;"></i><br>
-          <br><small ion-text color="light" style="position: relative; float: right;">Emergencia</small>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+    <ion-row>
+      <ion-col col-5>
+        <i (click)="AlumnFirst()" id="icon" class="fa fa-map" style="text-shadow: #66ffa6 0px 0px 0px, #00e676 1px 1px 0px, #00b248 2px 2px 0px, #00c853 3px 3px 0px, #009624 4px 4px 0px; font-size: 40px; color: rgb(255, 255, 255); height: 65px; width: 65px; line-height: 65px; border-radius: 50%; text-align: center; background-color: #00c853; position: relative; float: left;"></i><br>
+      </ion-col>
+      <ion-col col-3 offset-4>
+        <i (click)="emergency()" id="icon" class="fa fa-medkit" style="text-shadow: rgb(109, 24, 21) 0px 0px 0px, rgb(119, 26, 23) 1px 1px 0px, rgb(128, 28, 25) 2px 2px 0px, rgb(137, 30, 26) 3px 3px 0px, rgb(147, 32, 28) 4px 4px 0px; font-size: 40px; color: rgb(255, 255, 255); height: 65px; width: 65px; line-height: 65px; border-radius: 50%; text-align: center; background-color: rgb(156, 34, 30); position: relative; float: right;"></i><br>
+      </ion-col>
+      <ion-col col-6>
+        <small ion-text color="light" style="position: relative; float: left;">Mapa CUCEI</small>
+      </ion-col>
+      <ion-col col-6>
+        <small ion-text color="light" style="position: relative; float: right;">Emergencia</small>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

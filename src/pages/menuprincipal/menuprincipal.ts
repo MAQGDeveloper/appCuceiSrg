@@ -34,7 +34,7 @@ export class MenuprincipalPage {
     // this.imagen = "../../assets/imgs/kiwi.jpg";
     // this.statusBar.overlaysWebView(false);
     // this.validate();
-    this.statusBar.backgroundColorByHexString('#0D47A1');
+    this.statusBar.backgroundColorByHexString('#000000');
     //Produccion
     // this.nombre = this.navParams.get("nombre");
     this.email = this.navParams.get("correo");

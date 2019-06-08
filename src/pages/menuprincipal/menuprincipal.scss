@@ -1,11 +1,14 @@
 page-menuprincipal {
   div.toolbar-background.toolbar-background-md{
-    background: #1565C0;
+    background: #212121;
   }
   div.toolbar-title.toolbar-title-md{
     color: white;
   }
   ion-header.header.header-md{
-    background: #2196F3;
+    background: #484848;
+  }
+  ion-content{
+    background: #6d6d6d !important;
   }
 }

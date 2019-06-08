@@ -9,7 +9,6 @@ import { Toast } from '@ionic-native/toast';
 import { MyApp } from './app.component';
 import { IntroPage } from "../pages/intro/intro";
 import { LoginPage } from "../pages/login/login";
-import { LoginwebPage } from "../pages/loginweb/loginweb";
 import { MenuprincipalPage } from "../pages/menuprincipal/menuprincipal";
 import { FormreportemovilPage } from "../pages/formreportemovil/formreportemovil";
 import { AboutPage } from "../pages/about/about";
@@ -19,7 +18,7 @@ import { AboutPage } from "../pages/about/about";
 
 //Firebase
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import firebase from 'firebase';
 
@@ -41,7 +40,6 @@ firebase.initializeApp(firebaseConfig);
     MyApp,
     IntroPage,
     LoginPage,
-    LoginwebPage,
     MenuprincipalPage,
     FormreportemovilPage,
     AboutPage
@@ -58,7 +56,6 @@ firebase.initializeApp(firebaseConfig);
     MyApp,
     IntroPage,
     LoginPage,
-    LoginwebPage,
     MenuprincipalPage,
     FormreportemovilPage,
     AboutPage

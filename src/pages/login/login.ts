@@ -25,7 +25,7 @@ export class LoginPage {
               public loadingCtrl: LoadingController,
               private modalCtrl: ModalController) {
                 this.statusBar.overlaysWebView(false);
-                this.statusBar.backgroundColorByHexString('#163247');
+                this.statusBar.backgroundColorByHexString('#000000');
   }
   // ionViewPageLoad(){
   //   this.afAuth.auth.onAuthStateChanged(function(user) {
