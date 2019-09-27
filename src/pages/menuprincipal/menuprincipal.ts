@@ -6,6 +6,7 @@ import { CallNumber } from '@ionic-native/call-number';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AboutPage } from '../about/about';
 import { User } from '../../models/user';
+import {AlumnoProvider} from '../../providers/alumno/alumno';
 @IonicPage()
 @Component({
   selector: 'page-menuprincipal',
@@ -18,6 +19,9 @@ export class MenuprincipalPage {
   uuid: string;
   mostrar:boolean;
   dominio = "@alumnos.udg.mx";
+  correo:string = localStorage.getItem("email");
+  //document.getElementById("correo").value = this.correo;
+  //cantidad: any = AlumnoProvider;
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams, 
@@ -26,7 +30,8 @@ export class MenuprincipalPage {
               private afAuth: AngularFireAuth,
               private callNumber: CallNumber,
               private toastCtrl: ToastController,
-              private modalCtrl: ModalController) {
+              private modalCtrl: ModalController,
+              private _as: AlumnoProvider) {
     
     //Testing
     // this.nombre = "Miguel Angel Quezada Galvan";
@@ -48,20 +53,20 @@ export class MenuprincipalPage {
      if(data && data.email && data.uid)
     this.toastCtrl.create({
       message: `Bienvenido a CUCEI-SRG: ${data.email}`,
-      duration: 3000
+      duration: 1000
     }).present();
-    else{
-      this.toastCtrl.create({
-        message: `No se encontraron las credenciales`,
-        duration:3000
-      }).present();
-    }
+    // else{
+    //   this.toastCtrl.create({
+    //     message: `No se encontraron las credenciales`,
+    //     duration:3000
+    //   }).present();
+    // }
    })
  }
    presentLoading(type:string) {
     const loader = this.loadingCtrl.create({
       content: "Has ingresado como "+type,
-      duration: 3000
+      duration: 2000
     });
     loader.present();
   }
@@ -79,7 +84,7 @@ export class MenuprincipalPage {
     this.afAuth.auth.signOut().then(result =>{
       const loader = this.loadingCtrl.create({
         content: "Cerrando Sesión...",
-        duration: 3000
+        duration: 2000
       });
       loader.present();
       this.navCtrl.setRoot(LoginPage);

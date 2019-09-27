@@ -5,7 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { CallNumber } from '@ionic-native/call-number';
 import { Toast } from '@ionic-native/toast';
-
+import { HttpModule } from '@angular/http';
 import { MyApp } from './app.component';
 import { IntroPage } from "../pages/intro/intro";
 import { LoginPage } from "../pages/login/login";
@@ -24,6 +24,9 @@ import firebase from 'firebase';
 
 //Plugins
 import { GooglePlus } from '@ionic-native/google-plus';
+//Providers
+import { AlumnoProvider } from '../providers/alumno/alumno';
+import { AcademicoProvider } from '../providers/academico/academico';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyA0DEHXIXxm83tCuyo1ywqWYQxDHC-GAzI",
@@ -49,7 +52,8 @@ firebase.initializeApp(firebaseConfig);
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -67,7 +71,9 @@ firebase.initializeApp(firebaseConfig);
     GooglePlus,
     CallNumber,
     StatusBar,
-    Toast
+    Toast,
+    AlumnoProvider,
+    AcademicoProvider
   ]
 })
 export class AppModule {}

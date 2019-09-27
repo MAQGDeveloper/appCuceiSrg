@@ -14,7 +14,6 @@ import { AngularFireAuth } from 'angularfire2/auth';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-
   user = {} as User;
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -27,6 +26,21 @@ export class LoginPage {
                 this.statusBar.overlaysWebView(false);
                 this.statusBar.backgroundColorByHexString('#000000');
   }
+
+    //Checar si ya esta logeado el usuario con el localStorage
+    ionViewDidLoad() {
+      this.afAuth.authState.subscribe(res => {
+        if (res && res.uid) {
+          console.log("Esta logeado");
+          this.navCtrl.setRoot(MenuprincipalPage,{
+            'correo':res.email,
+            'imagen':res.photoURL
+        })
+        }else{
+          console.log("No esta logeado");
+        }
+      });
+    }  
   // ionViewPageLoad(){
   //   this.afAuth.auth.onAuthStateChanged(function(user) {
   //     if (user) {
@@ -50,6 +64,7 @@ export class LoginPage {
     try{
       this.disableBtn(true);
       await this.afAuth.auth.signInWithEmailAndPassword(user.email,user.password).then(user=>{
+        localStorage.setItem("email", user.user.email);
         this.disableBtn(true);
         this.navCtrl.setRoot(MenuprincipalPage,{
           'correo':user.user.email,
